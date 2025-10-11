@@ -1,4 +1,5 @@
 import pirata.*
+import armas.*
 import ubicacion.*
 
 class Barco {
