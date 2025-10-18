@@ -3,7 +3,7 @@ import pirata.*
 /* Toda arma de un pirata debe responder al mensaje danio(pirata) */
 
 object cuchillo {
-  var property danio
+  var property danio = 8
 
   method danio(pirata) = danio
 }
@@ -34,6 +34,19 @@ class Insulto {
 
 /* Es un arma propia del barco, no necesita el pirata para calcular su daño */
 class Canion {  
-  method danio() // TODO - ¡¡No lo completamos!!
+  const danioFabricacion
+  var aniosAntiguedad = 0
+
+  method danio() = danioFabricacion - danioFabricacion  * 0.01 * aniosAntiguedad
+
+  method envejecer(anios) {
+    aniosAntiguedad += anios
+  }
 }
 
+object canion {
+  var property danioFabricacion = 350
+
+  // 6
+  method crear() = new Canion(danioFabricacion = danioFabricacion)
+}
